@@ -89,12 +89,13 @@ On the live site the editor signs in with GitHub through a small OAuth proxy
 in `cms-auth/`, a Cloudflare Worker, because GitHub Pages cannot keep the
 OAuth client secret. To set it up once:
 
-1. Create a GitHub OAuth App (Settings, Developer settings, OAuth Apps) with
-   homepage `https://seunghoojin.com` and callback URL
-   `https://seunghoojin-cms-auth.<your-subdomain>.workers.dev/callback`.
-2. In `cms-auth/`, sign in to Cloudflare and deploy the Worker:
-   `npx wrangler@4.158.0 login`, then `npx wrangler@4.158.0 deploy`.
-3. Store the app's credentials as Worker secrets:
+1. In `cms-auth/`, sign in to Cloudflare and deploy the Worker:
+   `npx wrangler@4.158.0 login`, then `npx wrangler@4.158.0 deploy`. The
+   deploy prints the Worker's URL,
+   `https://seunghoojin-cms-auth.<your-subdomain>.workers.dev`.
+2. Create a GitHub OAuth App (Settings, Developer settings, OAuth Apps) with
+   homepage `https://seunghoojin.com` and callback URL `<Worker URL>/callback`.
+3. Store the app's credentials as Worker secrets, typed at the prompts:
    `npx wrangler@4.158.0 secret put GITHUB_CLIENT_ID` and
    `npx wrangler@4.158.0 secret put GITHUB_CLIENT_SECRET`.
 4. Set `OAUTH_PROXY` in `src/admin/config.yml.11ty.js` to the Worker's URL
