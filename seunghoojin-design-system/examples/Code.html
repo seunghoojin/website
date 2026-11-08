@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/bundle.css">
+<style>
+  html, body { margin:0; }
+  body { padding:24px 32px; }
+  .row { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+</style>
+</head>
+<body class="ds-page">
+<div class="ds-article-body" style="max-width:560px">
+<div class="ds-prose">
+<p style="margin:0 0 8px">Call <code class="ds-code">fit()</code> once per fold.</p>
+<pre class="ds-codeblock" style="margin:0"><span class="c"># train for 40 epochs</span>
+<span class="k">for</span> fold <span class="k">in</span> folds:
+    model.fit(fold.x, fold.y, epochs=40, tag=<span class="s">"baseline"</span>)</pre>
+</div>
+</div>
+</body>
+</html>

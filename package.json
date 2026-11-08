@@ -1,0 +1,17 @@
+{
+  "name": "seunghoojin-website",
+  "private": true,
+  "description": "Personal website of Andrew SeungHoo Jin, served at seunghoojin.com.",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve --port=8080"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.2",
+    "markdown-it": "14.3.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,46 @@
+/* Andrew SeungHoo Jin — generated from tokens.json */
+@font-face { font-family: "STIX Two Math"; src: url("../fonts/STIXTwoMath.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+:root {
+  --paper: #ffffff;
+  --paper-sunk: #f4f4f4;
+  --ink: #111111;
+  --ink-body: #454545;
+  --ink-muted: #767676;
+  --rule: #cccccc;
+  --rule-strong: #8a8a8a;
+  --accent: #b31b1b;
+  --accent-strong: #8f1515;
+  --on-accent: #ffffff;
+  --space-1: 2px;
+  --space-2: 7px;
+  --space-3: 13px;
+  --space-4: 20px;
+  --space-5: 30px;
+  --radius-0: 0;
+  --column: 289px;
+  --column-outer: 295px;
+  --gutter: 25px;
+  --hairline: 1px;
+  --rule-thick: 2px;
+  --board-4: 1201px;
+  --board-3: 899px;
+  --board-2: 597px;
+  --frame-wide: 2 / 1;
+  --frame-tall: 4 / 5;
+  --font-sans: Arial, Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-mono: "Courier New", "Nanum Gothic Coding", ui-monospace, monospace;
+  --font-math: "STIX Two Math", "Cambria Math", math;
+}
+.masthead { font-family: var(--font-sans); font-size: 30px; line-height: 34px; font-weight: 700; }
+.masthead-sub { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 400; }
+.section-title { font-family: var(--font-sans); font-size: 24.4px; line-height: 27px; font-weight: 400; }
+.entry-title { font-family: var(--font-sans); font-size: 16px; line-height: 20px; font-weight: 700; }
+.snippet { font-family: var(--font-sans); font-size: 13px; line-height: 19px; font-weight: 400; }
+.footer { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 400; }
+.article-title { font-family: var(--font-sans); font-size: 22px; line-height: 28px; font-weight: 700; }
+.article-section { font-family: var(--font-sans); font-size: 18px; line-height: 24px; font-weight: 700; }
+.article-subsection { font-family: var(--font-sans); font-size: 16px; line-height: 22px; font-weight: 700; }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }
+.small { font-family: var(--font-sans); font-size: 13px; line-height: 19px; font-weight: 400; }
+.footnote { font-family: var(--font-sans); font-size: 12px; line-height: 17px; font-weight: 400; }
+.code { font-family: var(--font-mono); font-size: 13px; line-height: 19px; font-weight: 400; }

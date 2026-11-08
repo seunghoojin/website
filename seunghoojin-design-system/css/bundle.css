@@ -1,0 +1,260 @@
+@import url("https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
+
+/* A hand-made academic home page: the mark and name, then a centred board of 295px section boxes
+   in Arial with red section titles and black underlined links. Entry titles open full articles.
+   Hangul falls through Arial to Pretendard, whose proportions sit close to Arial. */
+
+/* Base */
+.ds-page { margin: 0; background: var(--paper); color: var(--ink-body); font: 400 13px/1.45 var(--font-sans); }
+.ds-page a { color: var(--ink); text-decoration: underline; }
+.ds-page a:hover, .ds-page a:active { color: var(--accent); }
+.ds-page a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ds-page p { margin: 13px 0; }
+
+/* Shell: everything sits in one centred frame as wide as the board */
+.ds-shell { --board: var(--board-4); box-sizing: border-box; max-width: calc(var(--board) + 2 * var(--gutter)); margin: 0 auto; padding: 38px var(--gutter) var(--space-5); }
+.ds-shell--article { --board: var(--board-3); }
+@media (max-width: 1250px) { .ds-shell { --board: var(--board-3); } }
+@media (max-width: 948px) { .ds-shell, .ds-shell--article { --board: var(--board-2); } }
+@media (max-width: 646px) { .ds-shell, .ds-shell--article { --board: 520px; padding: 20px 12px 30px; } }
+
+/* Masthead: the mark and the name in Arial bold */
+.ds-masthead { display: flex; align-items: center; gap: 14px; margin: 0 0 24px; color: var(--ink); }
+.ds-masthead__mark { display: block; width: 52px; height: 52px; flex: none; fill: currentColor; }
+.ds-page .ds-masthead__name { margin: 0; font: 700 30px/34px var(--font-sans); color: var(--ink); letter-spacing: -0.01em; }
+.ds-page .ds-masthead__name a { color: inherit; text-decoration: none; }
+.ds-page .ds-masthead__sub { margin: 2px 0 0; font: 400 13px/18px var(--font-sans); color: var(--ink-body); }
+
+/* Home board: sections flow into balanced columns and never split, so no column is left with a hole */
+.ds-board--home { columns: 4 var(--column-outer); column-gap: var(--space-2); width: 100%; }
+@media (max-width: 1250px) { .ds-board--home { columns: 3 var(--column-outer); } }
+@media (max-width: 948px) { .ds-board--home { columns: 2 var(--column-outer); } }
+.ds-group { display: flex; flex-direction: column; gap: var(--space-2); break-inside: avoid; margin: 0 0 var(--space-2); }
+
+/* Article board: the article two columns wide, a side column beside it */
+.ds-board { display: grid; grid-template-columns: repeat(auto-fill, var(--column-outer)); gap: var(--space-2); align-items: start; }
+.ds-board--home { display: block; }
+.ds-column { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+
+/* Box: a section. Title, an optional lead, entries, grey rules between groups, a link list */
+.ds-box { box-sizing: border-box; padding: 2px 4px 2px; border: 1px solid var(--rule); background: var(--paper); container-type: inline-size; }
+.ds-box__section { display: block; margin: 2px 0 0; font: 400 24.4px/27px var(--font-sans); color: var(--accent); }
+.ds-page .ds-box__section a { color: inherit; text-decoration: none; }
+.ds-page .ds-box__section a:hover { text-decoration: underline; }
+.ds-box__section + .ds-box__lead { margin-top: 2px; }
+.ds-entry__title { margin: 13px 0 6px; font: 700 16px/20px var(--font-sans); color: var(--ink-body); }
+.ds-page .ds-entry__title a { color: inherit; text-decoration: none; }
+.ds-page .ds-entry__title a:hover { color: var(--accent); text-decoration: underline; }
+.ds-entry__date { color: var(--ink-body); }
+.ds-rule { height: 0; margin: 13px 0; border: 0; border-top: 1px solid var(--rule); }
+.ds-box__links { margin: 13px 0; }
+.ds-box__links a { display: block; width: fit-content; }
+.ds-box__links .ds-sub { margin-left: 1em; }
+
+/* Image frame. Images keep their own proportions between frame-wide (2:1) and frame-tall (4:5).
+   Outside that range the frame stops at the limit and the image is cropped around --focus (default centre).
+   The CMS should show the author this visible area when an image is added. */
+.ds-frame { display: block; width: 100%; height: auto; min-height: 50cqw; max-height: 125cqw; object-fit: cover; object-position: var(--focus, 50% 50%); background: var(--paper-sunk); }
+.ds-box .ds-frame { margin: 13px 0; }
+
+/* Footer: three small grey lines under the board, aligned with it */
+.ds-footer { margin: var(--space-5) 0 0; font: 400 12px/16px var(--font-sans); color: var(--ink-muted); }
+.ds-footer p { margin: 0; }
+.ds-page .ds-footer a { color: var(--ink-muted); }
+
+/* Article: the full text behind an entry title, a box two columns wide */
+.ds-article { grid-column: span 2; box-sizing: border-box; padding: 2px 28px 24px; border: 1px solid var(--rule); background: var(--paper); font: 400 15px/1.6 var(--font-sans); color: var(--ink-body); container-type: inline-size; }
+.ds-article-body { font: 400 15px/1.6 var(--font-sans); color: var(--ink-body); container-type: inline-size; }
+.ds-article p, .ds-article-body p { margin: 0 0 14px; }
+
+/* Article header */
+.ds-header { margin: 0 0 20px; }
+.ds-header__section { display: block; margin: 2px 0 0; font: 400 24.4px/27px var(--font-sans); color: var(--accent); }
+.ds-page .ds-header__section a { color: inherit; text-decoration: none; }
+.ds-page .ds-header__section a:hover { text-decoration: underline; }
+.ds-page .ds-title { margin: 14px 0 0; font: 700 22px/28px var(--font-sans); color: var(--ink-body); }
+.ds-page .ds-subtitle { margin: 4px 0 0; font: 400 15px/22px var(--font-sans); color: var(--ink-body); }
+.ds-page .ds-byline { margin: 10px 0 0; font: 400 13px/19px var(--font-sans); color: var(--ink-body); }
+.ds-details { margin-top: 4px; font: 400 13px/19px var(--font-sans); }
+.ds-details > summary { display: inline; list-style: none; cursor: pointer; color: var(--ink); text-decoration: underline; }
+.ds-details > summary::-webkit-details-marker { display: none; }
+.ds-details > summary:hover { color: var(--accent); }
+.ds-details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ds-details__body p { margin: 4px 0 0; }
+
+/* Headings inside an article */
+.ds-section, .ds-subsection, .ds-subsubsection { display: flex; gap: 0.5em; color: var(--ink-body); font-family: var(--font-sans); font-weight: 700; scroll-margin-top: 20px; }
+.ds-section { margin: 26px 0 10px; font-size: 18px; line-height: 24px; }
+.ds-subsection { margin: 20px 0 8px; font-size: 16px; line-height: 22px; }
+.ds-subsubsection { margin: 16px 0 6px; font-size: 15px; line-height: 22px; font-style: italic; }
+.ds-page .ds-num { color: inherit; text-decoration: none; font-variant-numeric: tabular-nums; flex: none; }
+.ds-page a.ds-num:hover { color: var(--accent); }
+.ds-runin { font-weight: 700; margin-right: 0.5em; }
+
+/* Links and cross-references */
+.ds-xref { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ds-link__ext { display: inline-block; width: 0.75em; height: 0.75em; margin-left: 2px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+.ds-mark { background: var(--paper-sunk); color: var(--ink); padding: 0 2px; }
+
+/* Abstract */
+.ds-abstract { margin: 0 0 20px; padding: 0 24px; font: 400 14px/1.55 var(--font-sans); color: var(--ink-body); }
+.ds-abstract__label { display: block; margin-bottom: 4px; font: 700 14px/20px var(--font-sans); color: var(--ink-body); text-align: center; }
+.ds-abstract p { margin: 0; }
+.ds-abstract .ds-keywords { margin-top: 6px; font-size: 13px; }
+.ds-keywords b { margin-right: 0.5em; }
+
+/* Figure: image in a frame, small centred caption below */
+.ds-figure { margin: 20px 0; }
+.ds-figure__caption { margin-top: 6px; font: 400 13px/19px var(--font-sans); color: var(--ink-body); text-align: center; }
+.ds-figure__label { margin-right: 0.3em; }
+.ds-figure--bleed { margin-left: -28px; margin-right: -28px; }
+.ds-figure--bleed > .ds-figure__caption { padding: 0 28px; }
+.ds-subfigs { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: 6px; align-items: start; }
+.ds-subfig { margin: 0; container-type: inline-size; }
+.ds-subfig > figcaption { margin-top: 4px; font: 400 12px/17px var(--font-sans); color: var(--ink-body); text-align: center; }
+.ds-subfig__label { margin-right: 0.3em; }
+.ds-zoom { display: block; cursor: zoom-in; }
+.ds-lightbox { max-width: none; max-height: none; width: 100vw; height: 100vh; margin: 0; padding: 24px; border: 0; background: var(--paper); box-sizing: border-box; cursor: zoom-out; }
+.ds-lightbox::backdrop { background: var(--paper); }
+.ds-lightbox img { display: block; max-width: 100%; max-height: calc(100vh - 80px); margin: 0 auto; object-fit: contain; }
+.ds-lightbox p { margin: 6px auto 0; font: 400 13px/19px var(--font-sans); color: var(--ink-body); text-align: center; }
+
+/* Table (booktabs) */
+.ds-table-wrap { max-width: 100%; overflow-x: auto; margin: 20px 0; }
+.ds-table { border-collapse: collapse; font: 400 13px/19px var(--font-sans); color: var(--ink-body); font-variant-numeric: tabular-nums; }
+.ds-table-wrap > figcaption, .ds-table caption { margin: 0 0 6px; caption-side: top; text-align: left; font: 400 13px/19px var(--font-sans); color: var(--ink-body); }
+.ds-table__label { margin-right: 0.3em; }
+.ds-table thead th { font-weight: 700; text-align: left; vertical-align: bottom; }
+.ds-table thead tr:first-child th { border-top: var(--rule-thick) solid var(--ink); }
+.ds-table thead tr:last-child th, .ds-table thead th[rowspan] { border-bottom: 1px solid var(--ink); }
+.ds-table th, .ds-table td { padding: 3px 14px 3px 0; white-space: nowrap; }
+.ds-table th:last-child, .ds-table td:last-child { padding-right: 0; }
+.ds-table tbody tr:last-child td, .ds-table tbody tr:last-child th { border-bottom: var(--rule-thick) solid var(--ink); }
+.ds-table tbody th { font-weight: 400; text-align: left; }
+.ds-table .ds-num-cell { text-align: right; }
+.ds-table .ds-center { text-align: center; }
+.ds-table .ds-best { font-weight: 700; color: var(--ink); }
+.ds-table thead th.ds-cmid { text-align: center; padding-bottom: 0; }
+.ds-table thead th.ds-cmid > span { display: block; padding-bottom: 3px; border-bottom: 1px solid var(--ink); }
+.ds-table tr.ds-group > td, .ds-table tr.ds-group > th { border-top: 1px solid var(--ink); }
+.ds-table tr.ds-ours > td, .ds-table tr.ds-ours > th { border-top: var(--rule-thick) solid var(--ink); }
+.ds-index { width: 100%; }
+.ds-index td:nth-child(2), .ds-index th:nth-child(2) { white-space: normal; }
+.ds-index .ds-index__no { width: 2.4em; color: var(--ink-muted); }
+.ds-index .ds-index__date { width: 8em; text-align: right; }
+.ds-index .ds-index__muted { color: var(--ink-muted); }
+.ds-index .ds-index__year { width: 3.5em; }
+
+/* Code */
+.ds-code { font: 400 13px/19px var(--font-mono); background: var(--paper-sunk); padding: 0 3px; color: var(--ink); }
+.ds-codeblock { margin: 14px 0; padding: 8px 10px; background: var(--paper-sunk); font: 400 13px/19px var(--font-mono); color: var(--ink); overflow-x: auto; white-space: pre; }
+.ds-codeblock .c { color: var(--ink-muted); }
+.ds-codeblock .k { font-weight: 700; }
+
+/* Contents */
+.ds-toc { margin: 0 0 20px; font: 400 14px/22px var(--font-sans); }
+.ds-toc__label { margin: 0 0 2px; font-weight: 700; }
+.ds-toc ol { margin: 0; padding: 0; list-style: none; }
+.ds-toc ol ol { padding-left: 1.6em; }
+.ds-toc a { display: inline-flex; gap: 0.6em; }
+.ds-toc a[aria-current="true"] { color: var(--accent); }
+.ds-toc .ds-num { min-width: 1.6em; }
+
+/* Notes (amsthm) */
+.ds-note { margin: 16px 0; padding: 0 24px; }
+.ds-note p { margin: 0; }
+.ds-note__label { font-weight: 700; }
+.ds-note__name { font-weight: 400; }
+.ds-note__label::after { content: "."; margin-right: 0.5em; }
+.ds-note--plain p { font-style: italic; }
+.ds-note--remark .ds-note__label { font-weight: 400; font-style: italic; }
+.ds-proof { margin: 8px 0 16px; }
+.ds-proof__label { font-style: italic; margin-right: 0.5em; }
+.ds-qed { display: inline-block; float: right; margin-top: 8px; width: 8px; height: 8px; border: 1px solid var(--ink); }
+
+/* Equation */
+.ds-eq { display: grid; grid-template-columns: 3em 1fr 3em; align-items: center; margin: 16px 0; scroll-margin-top: 20px; }
+.ds-eq__body { grid-column: 2; text-align: center; overflow-x: auto; }
+.ds-page math { font-family: var(--font-math); font-size: 17px; }
+.ds-eq__no { grid-column: 3; text-align: right; }
+
+/* Footnotes */
+.ds-fnref { font-size: 10px; line-height: 0; vertical-align: super; margin-left: 1px; }
+.ds-footnotes { margin-top: 24px; font: 400 12px/17px var(--font-sans); color: var(--ink-body); }
+.ds-footnotes::before { content: ""; display: block; width: 33%; border-top: 1px solid var(--rule-strong); margin-bottom: 6px; }
+.ds-footnotes ol { margin: 0; padding: 0; list-style: none; }
+.ds-footnotes li { display: grid; grid-template-columns: 1.6em 1fr; }
+.ds-footnotes li + li { margin-top: 3px; }
+.ds-page .ds-fn__no { color: var(--ink-body); text-decoration: none; }
+.ds-footnotes--symbols + .ds-footnotes { margin-top: 6px; }
+.ds-footnotes--symbols + .ds-footnotes::before { display: none; }
+
+/* References */
+.ds-refs { margin: 0; padding: 0; list-style: none; font: 400 13px/19px var(--font-sans); color: var(--ink-body); counter-reset: ref; }
+.ds-refs li { position: relative; padding-left: 2.4em; counter-increment: ref; }
+.ds-refs li + li { margin-top: 5px; }
+.ds-refs li::before { content: "[" counter(ref) "]"; position: absolute; left: 0; color: var(--ink-muted); }
+.ds-refs .ds-ref__venue { font-style: italic; }
+
+/* Pagination */
+.ds-pager { margin: 20px 0 0; padding: 14px 0 0; list-style: none; border-top: 1px solid var(--rule); font: 400 13px/19px var(--font-sans); }
+.ds-pager a { display: grid; grid-template-columns: 5em 1fr; }
+.ds-pager__dir { color: var(--ink-muted); }
+
+/* Section index: the entries of one section, to choose from */
+.ds-sectionindex { grid-column: span 2; box-sizing: border-box; padding: 2px 8px 13px; border: 1px solid var(--rule); background: var(--paper); }
+.ds-sectionindex__list { margin: 13px 0 0; padding: 0; list-style: none; }
+.ds-sectionindex__item { padding: 0 0 13px; }
+.ds-sectionindex__item + .ds-sectionindex__item { padding-top: 13px; border-top: 1px solid var(--rule); }
+.ds-sectionindex__item .ds-entry__title { margin: 0; }
+.ds-sectionindex__item p { margin: 4px 0 0; }
+
+/* Button */
+.ds-button { display: inline-flex; align-items: center; justify-content: center; min-height: 26px; padding: 2px 10px; font: 400 13px/19px var(--font-sans); border: 1px solid var(--rule-strong); background: var(--paper); color: var(--ink); cursor: pointer; text-decoration: none; }
+.ds-button:hover { border-color: var(--ink); }
+.ds-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ds-button--primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 700; }
+.ds-button--primary:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+.ds-button:disabled, .ds-button[aria-disabled="true"] { border-color: var(--rule); color: var(--ink-muted); cursor: default; }
+
+/* Input */
+.ds-form { display: grid; grid-template-columns: max-content 1fr; align-items: center; column-gap: 8px; row-gap: 7px; max-width: 420px; }
+.ds-form > .ds-field { display: contents; }
+.ds-field { display: grid; grid-template-columns: max-content 1fr; align-items: center; column-gap: 8px; row-gap: 2px; max-width: 420px; }
+.ds-field__label { font: 700 13px/19px var(--font-sans); color: var(--ink-body); }
+.ds-input { min-width: 0; font: 400 13px/19px var(--font-sans); color: var(--ink); background: var(--paper); border: 1px solid var(--rule-strong); padding: 3px 5px; }
+.ds-input::placeholder { color: var(--ink-muted); }
+.ds-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.ds-field__hint, .ds-field__error { grid-column: 2; margin: 0; font: 400 12px/16px var(--font-sans); }
+.ds-form .ds-field__hint, .ds-form .ds-field__error { margin-top: -5px; }
+.ds-field__hint { color: var(--ink-muted); }
+.ds-field--error .ds-input { border: 2px solid var(--ink); padding: 2px 4px; }
+.ds-field__error { color: var(--ink); }
+
+/* Phones: one level at a time. The home page keeps the open boxes (Who.I.am, Guide) first and in full,
+   then lists every other section by its red title alone; a title opens that section's index. */
+@media (max-width: 646px) {
+  .ds-page { font-size: 15px; }
+  .ds-masthead { gap: 10px; margin-bottom: 16px; }
+  .ds-masthead__mark { width: 44px; height: 44px; }
+  .ds-page .ds-masthead__name { font-size: 24px; line-height: 28px; }
+  .ds-board, .ds-board--home { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-2); columns: auto; }
+  .ds-group { margin: 0; }
+  .ds-group--open { order: -1; }
+  .ds-group:not(.ds-group--open) .ds-box--cont { display: none; }
+  .ds-group:not(.ds-group--open) .ds-box > :not(.ds-box__section) { display: none; }
+  .ds-group:not(.ds-group--open) .ds-box { padding: 0; }
+  .ds-group:not(.ds-group--open) .ds-box__section { margin: 0; }
+  .ds-group:not(.ds-group--open) .ds-box__section a { display: flex; justify-content: space-between; align-items: center; min-height: 44px; padding: 6px 10px; box-sizing: border-box; }
+  .ds-group:not(.ds-group--open) .ds-box__section a::after { content: "\203A"; font-size: 24px; color: var(--rule-strong); }
+  .ds-entry__title { font-size: 17px; line-height: 22px; }
+  .ds-article, .ds-sectionindex { grid-column: auto; padding: 2px 12px 18px; font-size: 16px; }
+  .ds-figure--bleed { margin-left: -12px; margin-right: -12px; }
+  .ds-figure--bleed > .ds-figure__caption { padding: 0 12px; }
+  .ds-sectionindex__item p:not(.ds-entry__date) { display: none; }
+  .ds-sectionindex__item .ds-entry__title a { display: block; padding: 2px 0; }
+  .ds-box__links a { padding: 4px 0; }
+  .ds-form, .ds-field { grid-template-columns: 1fr; }
+  .ds-field__hint, .ds-field__error { grid-column: 1; }
+}

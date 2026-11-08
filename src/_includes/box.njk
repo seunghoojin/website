@@ -1,0 +1,38 @@
+{#- One section as a box: red title, lead, the latest entries, links.
+    sec: an item of _data/sections.js; entries: that section's entries, sorted. -#}
+{% macro box(sec, entries) %}
+{%- set limit = sec.boardLimit or 4 -%}
+{%- set shown = entries.slice(0, limit) -%}
+{%- set dated = shown.length and shown[0].data.dateText -%}
+<div class="ds-box">
+<span class="ds-box__section"><a href="/{{ sec.slug }}/">{{ sec.title }}</a></span>
+{%- if sec.lead %}
+<p class="ds-box__lead">{{ sec.lead | mdInline | safe }}</p>
+{%- endif %}
+{%- if shown.length and sec.lead %}
+<hr class="ds-rule">
+{%- endif %}
+{%- for e in shown %}
+{%- if loop.index0 and not dated %}
+<hr class="ds-rule">
+{%- endif %}
+<h3 class="ds-entry__title"><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
+{%- if e.data.image %}
+<img class="ds-frame" src="{{ e.url }}{{ e.data.image }}" alt="{{ e.data.imageAlt or e.data.title }}"{% if e.data.focus %} style="--focus: {{ e.data.focus }}"{% endif %} loading="lazy">
+{%- endif %}
+<p>{{ e.data.snippet | mdInline | safe }}</p>
+{%- if e.data.dateText %}
+<p class="ds-entry__date">{{ e.data.dateText }}</p>
+{%- endif %}
+{%- endfor %}
+{%- if sec.links or entries.length > limit %}
+<hr class="ds-rule">
+{%- endif %}
+{%- if entries.length > limit %}
+<p class="ds-box__links"><a href="/{{ sec.slug }}/">All of {{ sec.title }}</a></p>
+{%- endif %}
+{%- if sec.links %}
+<p>{{ sec.links | mdInline | safe }}</p>
+{%- endif %}
+</div>
+{% endmacro %}

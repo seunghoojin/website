@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/bundle.css">
+<style>
+  html, body { margin:0; }
+</style>
+</head>
+<body class="ds-page">
+<div class="ds-shell ds-shell--article">
+<header class="ds-masthead">
+<svg class="ds-masthead__mark" viewBox="0 0 448 448" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M128 0C57.3076 0 0 57.3076 0 128C0 163.346 28.6538 192 64 192C28.6538 192 0 220.654 0 256V384C0 419.346 28.6538 448 64 448H192C227.346 448 256 419.346 256 384C256 348.654 284.654 320 320 320C355.325 320 383.966 348.62 384 383.937V384C384 419.325 355.38 447.966 320.063 448H384C419.346 448 448 419.346 448 384C412.654 384 384 355.346 384 320L384 256V128C384 57.3076 326.692 0 256 0H128ZM256 128.045L256 255.955C255.976 220.63 227.331 192 192 192L64 192C99.3462 192 128 163.346 128 128L128 127.976L128 127.96C128.021 92.6323 156.667 64 192 64C227.336 64 255.983 92.6371 256 127.969C256.017 92.6371 284.664 64 320 64C355.346 64 384 92.6537 384 128C384 163.346 355.346 192 320 192C284.669 192 256.024 163.37 256 128.045ZM384 256C384 291.346 355.346 320 320 320C284.654 320 256 291.346 256 256C256 220.654 284.654 192 320 192C355.346 192 384 220.654 384 256ZM128 384C163.346 384 192 355.346 192 320C192 284.654 163.346 256 128 256C92.6538 256 64 284.654 64 320C64 355.346 92.6538 384 128 384Z"/></svg>
+<div>
+<p class="ds-masthead__name"><a href="#">Andrew SeungHoo Jin</a></p>
+<p class="ds-masthead__sub">Architecture and Artificial Intelligence, Seoul National University</p>
+</div>
+</header>
+<div class="ds-board">
+<article class="ds-article">
+<header class="ds-header">
+<span class="ds-header__section"><a href="#">Writing</a></span>
+<h1 class="ds-title">공간과 로봇의 공존을 위한 설계</h1>
+<p class="ds-subtitle">Notes on corridors, thresholds and signage</p>
+<p class="ds-byline">2 November 2026</p>
+</header>
+<p>로봇과 사람이 같은 복도를 쓰려면 폭, 회전 반경, 시야가 함께 설계되어야 한다. Prior work treats the robot as a vehicle and the building as fixed; this essay reverses the question and asks what a building owes to the machines that move through it <a class="ds-xref" href="#">[2]</a>.</p>
+<p>The argument proceeds in three steps. <a class="ds-xref" href="#">Section 2</a> sets out the constraints, <a class="ds-xref" href="#">Section 3</a> derives rules, and <a class="ds-xref" href="#">Section 4</a> tests them on one floor.<sup class="ds-fnref"><a href="#">1</a></sup></p>
+<h2 class="ds-section" id="a2"><a class="ds-num" href="#a2">2</a><span>Constraints</span></h2>
+<p>Only indoor circulation is considered: corridors, thresholds, lifts and signage. A shared corridor must let a person with luggage pass a robot without either stopping.</p>
+<figure class="ds-figure"><svg class="ds-frame" viewBox="0 0 300 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Plan, 3:1, shown in a 2:1 frame"><rect width="300" height="100" fill="#eeeeee"/><g fill="none" stroke="#454545" stroke-width="1.2"><rect x="48" y="18" width="204" height="64"/><line x1="126" y1="18" x2="126" y2="82"/><line x1="126" y1="50" x2="252" y2="50"/></g></svg><figcaption class="ds-figure__caption"><span class="ds-figure__label">Figure 1:</span>Plan of the third floor at 1:200.</figcaption></figure>
+<h3 class="ds-subsection" id="a21"><a class="ds-num" href="#a21">2.1</a><span>Corridors</span></h3>
+<p>A shared corridor is at least 1.8 m wide, with passing bays every 20 m. Narrower corridors force one party to yield, and the robot is usually the one that cannot.</p>
+<section class="ds-footnotes" aria-label="Footnotes"><ol><li><a class="ds-fn__no" href="#">1</a><span>An earlier version was presented at a design seminar, fall 2026.</span></li></ol></section>
+<ul class="ds-pager" aria-label="More in Writing">
+<li><a href="#"><span class="ds-pager__dir">Previous</span><span class="ds-pager__title">What a classifier sees</span></a></li>
+</ul>
+</article>
+<div class="ds-column">
+<div class="ds-box">
+<span class="ds-box__section"><a href="#">Writing</a></span>
+<h3 class="ds-entry__title"><a href="#">What a classifier sees</a></h3>
+<p>Notes on images that fool models but not people.</p>
+<p class="ds-entry__date">14 September 2026</p>
+<h3 class="ds-entry__title"><a href="#">도면을 읽는 방법에 대하여</a></h3>
+<p>선, 기호, 축척이 말하는 것.</p>
+<p class="ds-entry__date">20 December 2025</p>
+<hr class="ds-rule">
+<p class="ds-box__links"><a href="#">All notes</a></p>
+</div>
+</div>
+</div>
+<footer class="ds-footer">
+<p>Copyright © 2026 Andrew SeungHoo Jin</p>
+<p>This site was updated on 7 November 2026</p>
+<p>Design system inspired by the <a href="https://people.csail.mit.edu/phw/">home page of Patrick Henry Winston</a> (1943–2019)</p>
+</footer>
+</div>
+</body>
+</html>

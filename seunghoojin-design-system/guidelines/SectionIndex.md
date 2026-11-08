@@ -1,0 +1,3 @@
+The page a section title opens: every entry in that section, newest first, to choose from. On a phone it is the second level, between the list of section titles and an article.
+
+Markup: inside `ds-shell ds-shell--article`, the Masthead, then `<div class="ds-board">` holding `<section class="ds-sectionindex">` (two columns, drawn as a box) with the red `ds-box__section`, an optional `ds-box__lead`, and `<ul class="ds-sectionindex__list">` of `<li class="ds-sectionindex__item">`, each with an entry title link, a one-line snippet and the date last, separated by 1px `rule` lines. On phones the snippets are hidden; each item is its title, a full-width tap target, and its date.

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/bundle.css">
+<style>
+  html, body { margin:0; }
+  body { padding:24px 32px; }
+  .row { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+</style>
+</head>
+<body class="ds-page">
+<div class="ds-article-body" style="max-width:560px">
+<div class="ds-prose">
+<p style="margin:0">The attention weights are computed as</p>
+<div class="ds-eq" id="eq1">
+<div class="ds-eq__body"><math display="block"><mrow><mrow><mi mathvariant="normal">Attention</mi><mo stretchy="false">(</mo><mi>Q</mi><mo>,</mo><mi>K</mi><mo>,</mo><mi>V</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mi mathvariant="normal">softmax</mi><mrow><mo>(</mo><mfrac><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup></mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mfrac><mo>)</mo></mrow><mi>V</mi></mrow></math></div>
+<div class="ds-eq__no">(1)</div>
+</div>
+<p style="margin:0">where <a class="ds-xref" href="#eq1">Eq. (1)</a> scales the dot products by the key dimension.</p>
+</div>
+</div>
+</body>
+</html>

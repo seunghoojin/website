@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/bundle.css">
+<style>
+  html, body { margin:0; }
+  body { padding:24px 32px; }
+  .row { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+</style>
+</head>
+<body class="ds-page">
+<div class="ds-article-body" style="max-width:560px">
+<figure class="ds-table-wrap" style="margin:0">
+<figcaption><span class="ds-table__label">Table 2:</span>Reconstruction quality and cost on the validation set.</figcaption>
+<table class="ds-table">
+<thead>
+<tr><th rowspan="2">Model</th><th class="ds-cmid" colspan="2"><span>Quality</span></th><th class="ds-cmid" colspan="2"><span>Cost</span></th></tr>
+<tr><th class="ds-num-cell">SSIM</th><th class="ds-num-cell">PSNR</th><th class="ds-num-cell">Params</th><th class="ds-num-cell">Hours</th></tr>
+</thead>
+<tbody>
+<tr><th>U-Net</th><td class="ds-num-cell">0.912</td><td class="ds-num-cell">33.8</td><td class="ds-num-cell">7.8M</td><td class="ds-num-cell">6</td></tr>
+<tr><th>VarNet</th><td class="ds-num-cell">0.931</td><td class="ds-num-cell">35.2</td><td class="ds-num-cell">29.9M</td><td class="ds-num-cell">31</td></tr>
+<tr class="ds-group"><th>U-Net ensemble</th><td class="ds-num-cell">0.925</td><td class="ds-num-cell">34.6</td><td class="ds-num-cell">39.0M</td><td class="ds-num-cell">30</td></tr>
+<tr><th>VarNet ensemble</th><td class="ds-num-cell">0.936</td><td class="ds-num-cell">35.6</td><td class="ds-num-cell">149.5M</td><td class="ds-num-cell">155</td></tr>
+<tr class="ds-ours"><th>Ours (base)</th><td class="ds-num-cell">0.934</td><td class="ds-num-cell">35.5</td><td class="ds-num-cell">12.4M</td><td class="ds-num-cell ds-best">5</td></tr>
+<tr><th>Ours (large)</th><td class="ds-num-cell ds-best">0.938</td><td class="ds-num-cell ds-best">35.9</td><td class="ds-num-cell">48.1M</td><td class="ds-num-cell">19</td></tr>
+</tbody></table>
+</figure>
+</div>
+</body>
+</html>

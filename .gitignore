@@ -1,0 +1,10 @@
+# Dependencies and build output
+node_modules/
+_site/
+.cache/
+
+# Local and secret files
+.env
+.env.*
+*.log
+.DS_Store

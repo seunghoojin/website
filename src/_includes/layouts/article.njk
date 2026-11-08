@@ -1,0 +1,45 @@
+---
+layout: layouts/base.njk
+shell: article
+---
+{%- from "box.njk" import box -%}
+{%- set sec = sections | sectionBySlug(section) -%}
+{%- set siblings = collections.entries | inSection(section) -%}
+<div class="ds-board">
+<article class="ds-article">
+<header class="ds-header">
+<span class="ds-header__section"><a href="/{{ sec.slug }}/">{{ sec.title }}</a></span>
+<h1 class="ds-title">{{ title }}</h1>
+{%- if subtitle %}
+<p class="ds-subtitle">{{ subtitle }}</p>
+{%- endif %}
+{%- if dateText %}
+<p class="ds-byline">{{ dateText }}</p>
+{%- endif %}
+</header>
+{{ content | safe }}
+{%- if plate %}
+<figure class="ds-figure ds-figure--bleed">
+<a class="ds-zoom" href="{{ plate }}" aria-label="Enlarge Figure 1"><img class="ds-frame" src="{{ plate }}" alt="{{ imageAlt or ('First page of ' + title if not image else title) }}" style="--focus: {{ focus or ('50% 0%' if not image else '50% 50%') }}"></a>
+<figcaption class="ds-figure__caption"><span class="ds-figure__label">Figure 1:</span>{{ caption or ('The first page of the PDF.' if not image else title) }}</figcaption>
+</figure>
+{%- endif %}
+{%- if pdf %}
+<p><a class="ds-button ds-button--primary" href="{{ pdf }}">Open the PDF{% if pdfBytes %} ({{ pdfBytes | megabytes }}){% endif %}</a></p>
+{%- endif %}
+{%- set ns = siblings | neighbours(page.url) %}
+{%- if ns.prev or ns.next %}
+<ul class="ds-pager" aria-label="More in {{ sec.title }}">
+{%- if ns.prev %}
+<li><a href="{{ ns.prev.url }}"><span class="ds-pager__dir">Previous</span><span class="ds-pager__title">{{ ns.prev.data.title }}</span></a></li>
+{%- endif %}
+{%- if ns.next %}
+<li><a href="{{ ns.next.url }}"><span class="ds-pager__dir">Next</span><span class="ds-pager__title">{{ ns.next.data.title }}</span></a></li>
+{%- endif %}
+</ul>
+{%- endif %}
+</article>
+<div class="ds-column">
+{{ box(sec, siblings) }}
+</div>
+</div>

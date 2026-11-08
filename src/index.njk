@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+---
+{%- from "box.njk" import box -%}
+<div class="ds-board ds-board--home">
+{%- for sec in sections %}
+<div class="ds-group{% if sec.open %} ds-group--open{% endif %}">
+{{ box(sec, collections.entries | inSection(sec.slug)) }}
+</div>
+{%- endfor %}
+</div>

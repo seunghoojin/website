@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+shell: article
+pagination:
+  data: sections
+  size: 1
+  alias: sec
+permalink: "/{{ sec.slug }}/"
+eleventyComputed:
+  title: "{{ sec.title }}"
+  description: "{{ sec.lead }}"
+---
+{#- SectionIndex: every entry of one section, newest first. -#}
+{%- set list = collections.entries | inSection(sec.slug) -%}
+<div class="ds-board">
+<section class="ds-sectionindex">
+<span class="ds-box__section"><a href="/{{ sec.slug }}/">{{ sec.title }}</a></span>
+{%- if sec.lead %}
+<p class="ds-box__lead">{{ sec.lead | mdInline | safe }}</p>
+{%- endif %}
+{%- if list.length %}
+<ul class="ds-sectionindex__list">
+{%- for e in list %}
+<li class="ds-sectionindex__item"><h3 class="ds-entry__title"><a href="{{ e.url }}">{{ e.data.title }}</a></h3><p>{{ e.data.snippet | mdInline | safe }}</p>{% if e.data.dateText %}<p class="ds-entry__date">{{ e.data.dateText }}</p>{% endif %}</li>
+{%- endfor %}
+</ul>
+{%- endif %}
+{%- if sec.links %}
+<p>{{ sec.links | mdInline | safe }}</p>
+{%- endif %}
+</section>
+</div>
