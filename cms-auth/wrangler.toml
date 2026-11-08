@@ -1,0 +1,15 @@
+# Cloudflare Worker: GitHub OAuth for the Decap CMS editor at /admin/.
+# Setup steps are in README.md, "Editing in the browser".
+name = "seunghoojin-cms-auth"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[vars]
+# Origins of the editor that may receive a token, comma-separated.
+ALLOWED_ORIGINS = "https://seunghoojin.com"
+GITHUB_SCOPE = "public_repo"
+
+# Secrets, set with `npx wrangler@4.158.0 secret put <NAME>`:
+#   GITHUB_CLIENT_ID
+#   GITHUB_CLIENT_SECRET

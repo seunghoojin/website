@@ -1,0 +1,16 @@
+/* Layout for the editor's Focus field and entry preview (src/admin/cms.js).
+   Colours, sizes and spacing come only from the design system tokens. */
+
+/* A box as wide as a board column, so frames are measured as on the site. */
+.cms-focus__box,
+.cms-preview__box { width: var(--column-outer); }
+
+.cms-focus__views { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: flex-start; }
+.cms-focus__view > p { margin: 0 0 var(--space-1); }
+
+/* The whole image, with the part in view outlined. */
+.cms-focus__picker { position: relative; margin: var(--space-3) 0; touch-action: none; user-select: none; }
+.cms-focus__picker img { display: block; width: 100%; height: auto; }
+.cms-focus__picker--active { cursor: crosshair; }
+.cms-focus__picker:focus-visible { outline: var(--rule-thick) solid var(--accent); outline-offset: var(--space-1); }
+.cms-focus__area { position: absolute; box-sizing: border-box; border: var(--rule-thick) solid var(--accent); pointer-events: none; }
