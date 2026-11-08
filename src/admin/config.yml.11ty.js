@@ -11,7 +11,7 @@ import sections from "../_data/sections.js";
 
 // The GitHub OAuth proxy (cms-auth/, a Cloudflare Worker). Set this to the
 // Worker's URL once it is deployed; see "Editing in the browser" in README.md.
-export const OAUTH_PROXY = "https://seunghoojin-cms-auth.CHANGE-ME.workers.dev";
+export const OAUTH_PROXY = "https://seunghoojin-cms-auth.seunghoojin.workers.dev";
 
 // Sections that hold text on the board but no entries.
 const WITHOUT_ENTRIES = new Set(["guide"]);
